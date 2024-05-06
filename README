@@ -1,0 +1,22 @@
+Ryan Dahlke and Larry Collins
+Critique of Design v1
+The primary concern that I would have with the design is the criteria used in forming its modules. 
+It seems to me that the modules of the original design are more akin to the “flowchart” approach maligned by Parnas. 
+The modules are not designed to hide information from each other, and instead are steps in the randomization process.
+Randex is notable, as it literaly calls each function in sequence.
+
+Design v2
+The intent behind v2 of randex is to better hide the design decisions of each module. 
+The modules are as follows: 
+1.Input; Design unchanged from v1, hides the function used to save the contents of the file to an array of characters. 
+2.Find_Problems; design largely unchanged, the match function has been brought out into its own module 
+3.Find_Answers; design largely unchanged, the match function has been brought out into its own module 
+4.Match_Problems; Hides the inner workings of the match function for the problem module 
+5.Match_Answers; Hides the inner workings of the match function for the answer module 
+6.Rand; A fusion of the randomize function designed to hide the logic related to the randomization process.
+7.Output; (Intended to be) A function that takes the randomized exam and puts it into an output file.
+
+2 uses 1, 4
+3 uses 1, 5
+6 uses 2, 3
+7 uses 6
